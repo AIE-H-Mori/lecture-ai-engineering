@@ -14,6 +14,9 @@ from pyngrok import ngrok
 # --- 設定 ---
 # モデル名を設定
 MODEL_NAME = "google/gemma-2-2b-jpn-it"  # お好みのモデルに変更可能です
+# 例: "google/gemma-2-2b-jpn-it"、"google/gemma-2-2b-jpn-it-v1.0"、"google/gemma-2-2b-jpn-it-v1.1"など
+# MODEL_NAME = "google/gemma-3-27b-it"  # お好みのモデルに変更可能です
+
 print(f"モデル名を設定: {MODEL_NAME}")
 
 # --- モデル設定クラス ---
