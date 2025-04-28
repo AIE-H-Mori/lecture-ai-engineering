@@ -11,7 +11,8 @@ from config import MODEL_NAME
 from huggingface_hub import HfFolder
 
 # --- アプリケーション設定 ---
-st.set_page_config(page_title="Gemma Chatbot", layout="wide")
+# st.set_page_config(page_title="Gemma Chatbot", layout="wide")
+st.set_page_config(page_title="Abeja Chatbot", layout="wide")
 
 # --- 初期化処理 ---
 # NLTKデータのダウンロード（初回起動時など）
@@ -46,8 +47,9 @@ def load_model():
 pipe = llm.load_model()
 
 # --- Streamlit アプリケーション ---
-st.title("🤖 Gemma 2 Chatbot with Feedback")
-st.write("Gemma 2を使用したチャットボットアプリケーション")
+# st.title("🤖 Gemma 2 Chatbot with Feedback")
+st.title("🤖 ABEJA Chatbot with Feedback")
+st.write("ABEJAを使用したチャットボットアプリケーション")
 st.markdown("---")
 
 # --- サイドバー ---
@@ -78,4 +80,4 @@ elif st.session_state.page == "サンプルデータ管理":
 
 # --- フッターなど（任意） ---
 st.sidebar.markdown("---")
-st.sidebar.info("開発者: [Your Name]")
+st.sidebar.info("開発者: HMoriyama")
