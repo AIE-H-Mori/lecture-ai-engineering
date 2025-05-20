@@ -109,6 +109,24 @@ def test_model_exists():
     assert os.path.exists(MODEL_PATH), "モデルファイルが存在しません"
 
 
+def test_model_with_outliers(train_model):
+    """異常値データのテスト"""
+    model, X_test, _ = train_model
+    # 異常値を追加する
+    X_test_with_outliers = X_test.copy()
+    X_test_with_outliers.iloc[0, X_test.columns.get_loc("Age")] = -10  # マイナス値
+    X_test_with_outliers.iloc[1, X_test.columns.get_loc("Age")] = (
+        300  # 明らかに大きい値
+    )
+
+    # 予測実行
+    try:
+        pred = model.predict(X_test_with_outliers)
+        assert pred is not None, "異常値を含むデータで予測できませんでした"
+    except Exception as e:
+        pytest.fail(f"異常値の処理でエラーが発生しました： {e}")
+
+
 def test_model_accuracy(train_model):
     """モデルの精度を検証"""
     model, X_test, y_test = train_model
